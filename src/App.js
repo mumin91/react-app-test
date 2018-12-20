@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Menu from './components/MenuComponent';
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,6 +14,7 @@ class App extends Component {
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>
         </Navbar>
+        <Menu />
       </div>
     );
   }
