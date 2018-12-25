@@ -12,7 +12,6 @@ class DishDetail extends Component {
 
         renderDish(dish) {
             if (dish != null){
-                console.log(this.props.selectedDish);
                 return (
                   <Card>
                       <CardImg top width="100%" object src={dish.image} alt={dish.name} />
@@ -39,7 +38,7 @@ class DishDetail extends Component {
                   return(
                     <li key="comment.id">
                       {comment.comment}
-                      <br/><br/>
+                      <br/>
                       -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
                       <br/><br/>
                     </li>
@@ -66,7 +65,7 @@ class DishDetail extends Component {
     
         render() {
                 return(
-                    <div>
+                    <div className="container">
                         <div className="row">
                     <div  className="col-12 col-md-5 m-1">
                     {this.renderDish(this.props.dish)}
