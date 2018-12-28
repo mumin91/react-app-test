@@ -62,6 +62,7 @@ function RenderComments({ comments }) {
 
 
 const DishDetail = (props) => {
+  document.title = props.dish.name;
   return (
     <div className="container">
       <div className="row">
