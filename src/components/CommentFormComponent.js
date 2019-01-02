@@ -36,12 +36,12 @@ class CommentForm extends React.Component {
         return (
             <div>
                 <Button onClick={this.toggleModal}>
-                    <span className="fa fa-pencil fa-lg"></span> Submit comment
+                    <span className="fa fa-pencil fa-lg"></span> Submit Comment
                 </Button>
 
                 <div className="row row-content">
                     <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                        <ModalHeader toggle={this.toggleModal}> Submit comment</ModalHeader>
+                        <ModalHeader toggle={this.toggleModal}> Submit Comment</ModalHeader>
                         <ModalBody>
                             <LocalForm onSubmit={(values) => this.handleSubmit(values)} >
 
@@ -61,8 +61,8 @@ class CommentForm extends React.Component {
 
                                 <Row className="form-group">
                                     <Col>
-                                        <Label htmlFor="author">Your name</Label>
-                                        <Control.text model=".author" id="author" name="author" placeholder="Your name" className="form-control"
+                                        <Label htmlFor="author">Your Name</Label>
+                                        <Control.text model=".author" id="author" name="author" placeholder="Your Name" className="form-control"
                                             validators={{
                                                 required,
                                                 minLength: minLength(3),
@@ -80,7 +80,7 @@ class CommentForm extends React.Component {
 
                                 <Row className="form-group">
                                     <Col>
-                                        <Label htmlFor="feedback">Your feedback</Label>
+                                        <Label htmlFor="feedback">Comment</Label>
                                         <Control.textarea model=".comment" id="comment" name="comment" rows="6" className="form-control" />
                                     </Col>
                                 </Row>
