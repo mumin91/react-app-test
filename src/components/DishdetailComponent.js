@@ -5,13 +5,13 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import CommentForm from './CommentFormComponent';
-
+import { Loading } from './LoadingComponent';
 
 
 
 function RenderDish({ dish }) {
-  if (dish != null) {
     return (
+      <div className="col-12 col-md-5 m-1">
       <Card>
         <CardImg top width="100%" object src={dish.image} alt={dish.name} />
         <CardBody>
@@ -19,14 +19,10 @@ function RenderDish({ dish }) {
           <CardText> {dish.description}</CardText>
         </CardBody>
       </Card>
+      </div>
     );
   }
-  else {
-    return (
-      <div></div>
-    );
-  }
-}
+
 
 
 function RenderComments({comments, addComment, dishId}) {
@@ -51,16 +47,31 @@ function RenderComments({comments, addComment, dishId}) {
       </div>
     );
   }
-  else {
-    return (
-      <div></div>
-    );
-  }
+
 }
 
 
 const DishDetail = (props) => {
   document.title = props.dish.name;
+  if (props.isLoading) {
+    return(
+        <div className="container">
+            <div className="row">            
+                <Loading />
+            </div>
+        </div>
+    );
+}
+else if (props.errMess) {
+    return(
+        <div className="container">
+            <div className="row">            
+                <h4>{props.errMess}</h4>
+            </div>
+        </div>
+    );
+}
+else if (props.dish != null) {
   return (
     <div className="container">
       <div className="row">
@@ -74,9 +85,9 @@ const DishDetail = (props) => {
         </div>
       </div>
       <div className="row">
-        <div className="col-12 col-md-5 m-1">
+        
           <RenderDish dish={props.dish} />
-        </div>
+        
         <div className="col-12 col-md-5 m-1">
         <RenderComments comments={props.comments}
         addComment={props.addComment}
@@ -86,6 +97,12 @@ const DishDetail = (props) => {
       </div>
     </div>
   );
+}
+else {
+  return (
+    <div></div>
+  );
+}
 }
 
 
